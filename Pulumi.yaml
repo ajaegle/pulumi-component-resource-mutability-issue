@@ -1,0 +1,3 @@
+name: pulumi-component-resource-mutability-issue
+runtime: nodejs
+description: A minimal Kubernetes TypeScript Pulumi program
