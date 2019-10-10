@@ -52,28 +52,6 @@ export class MutabilityIssueComponent extends pulumi.ComponentResource {
             }
         }, this.k8sResourceOpts);
 
-        // const deploymentTwo = new k8s.apps.v1.Deployment("whoami-two", {
-        //     metadata: {
-        //         namespace: this.args.namespaceName,
-        //     },
-        //     spec: {
-        //         selector: { matchLabels: whoamiAppLabels },
-        //         replicas: 1,
-        //         template: {
-        //             metadata: { labels: whoamiAppLabels },
-        //             spec: {
-        //                 containers: [
-        //                     {
-        //                         name: "main",
-        //                         image: `ajaegle/whoami:1.0.0`,
-        //                         ports: [{containerPort: 80}],
-        //                     }
-        //                 ]
-        //             }
-        //         }
-        //     }
-        // }, this.k8sResourceOpts);
-
         const service = new k8s.core.v1.Service("whoami", {
             metadata: {
                 namespace: this.args.namespaceName,
@@ -88,6 +66,5 @@ export class MutabilityIssueComponent extends pulumi.ComponentResource {
         }, this.k8sResourceOpts);
 
         return {deploymentOne, service};
-        // return {deploymentOne, deploymentTwo, service};
     }
 }
